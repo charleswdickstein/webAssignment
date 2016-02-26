@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Layout</title>
+	<link rel="stylesheet" type="text/css" href="../css/layout.css">
+</head>
+<header>
+	<nav>
+		<ul>
+			<li class="homeButton"><a href="home.html" onmouseover="document.home.src='../homebutton.gif'"
+onmouseout="document.home.src='../button.png'">
+<img src="../button.png" width="100" height="40" alt="home" name="home" /></a></li>
+			<li class="homeButton"><a href="assignments.html"><img src="../button1.png"></a></li>
+			<li class="homeButton"><a href="http://cs.nyu.edu/courses/spring16/CSCI-UA.0061-001/"><img src="../button2.png"></a></li>
+			<li class="homeButton"><a href="https://github.com/charleswdickstein"><img src="../button5.png"></a></li>
+			<li class="homeButton"><a href="https://charlesdickstein.com"><img src="../button4.png"></a></li>
+			
+		</ul>
+	</nav>
+</header>
+<body>
+
+<div id="sidebar">
+	<table>
+	<tr>
+		<td class="sidebarImg"><a href="https://github.com/charleswdickstein"><img src="../githubIcon.jpg"></a></td>
+	</tr>
+	<tr>
+		<td class="sidebarImg"><a href="https://www.linkedin.com/in/charles-w-dickstein-5a616796"><img src="../linkedin-icon.png"></a></td>
+	</tr>
+	</table>
+</div>
+<div class="main_content">
+	<FORM METHOD="get">
+<TEXTAREA NAME="ScriptArea" COLS="90" ROWS="20" WRAP="off">
+java> 
+ASSIGNMENT 1
+/* Charles Dickstein 
+ * January 28, 2015
+ * This program  creates a quasi-random number of 
+ * different colored gum balls and keeps
+ * purchasing gum balls until a red gum ball is purchased.
+ * The total number and value of the gum balls purchased 
+ * is then returned
+ */
+ 
+
+import java.util.ArrayList;
+
+public class gumball {
+
+	public static void main(String[] args) {
+		// Sets the amount of each gumball by color
+		int yellow = (int) (Math.random() * 6 + 10);
+		int blue = (int) (Math.random() * 9 + 1);
+		int white = (int) (Math.random() * 10 + 6);
+		int green = (int) (Math.random() * 16 + 10);
+		int black = (int) (Math.random() * 12 + 1);
+		int purple = (int) (Math.random() * 6 + 5);
+		int silver = (int) (Math.random() * 3 + 4);
+		int cyan = (int) (Math.random() * 8 + 5);
+		int magenta = (int) (Math.random() * 11);
+		int red = 1;
+		System.out.printf(
+				"you are starting with the following gumballs " + "\n%d yellow \n%d blue \n%d white \n%d green"
+						+ "\n%d black \n%d purple \n%d silver" + "\n%d cyan \n%d magenta \n%d red\nHere are your random purchases:\n",
+						yellow, blue, white, green, black, purple, silver, cyan, magenta, red);
+
+		// Creates an arrayList, adding the amount of gumballs
+		// to the arraylist. Each color receives an unique value
+		// Ex. yellow = 1, blue = 2, white = 3, etc.
+		ArrayList<Integer> elements = new ArrayList<>();
+		Loopy(yellow, 1, elements);
+		Loopy(blue, 2, elements);
+		Loopy(white, 3, elements);
+		Loopy(green, 4, elements);
+		Loopy(black, 5, elements);
+		Loopy(purple, 6, elements);
+		Loopy(silver, 7, elements);
+		Loopy(cyan, 8, elements);
+		Loopy(magenta, 9, elements);
+		Loopy(red, 10, elements);
+		
+		//randomly returns a value from the arrayList
+		// converts the value to the corresponding color,
+		// removes the value ie gumball from the arraylist,
+		// and counts each purchase
+		int value = elements.get((int) (Math.random() * elements.size()));
+		int count = 0;
+		for (int i = 0; i < elements.size(); i++) {
+
+			while (value != 10) {
+				value = elements.get((int) (Math.random() * elements.size()));
+				switch (value) {
+				case 1:
+					System.out.println("yellow");
+					elements.remove(i);
+					yellow--;
+					count++;
+					break;
+				case 2:
+					System.out.println("blue");
+					elements.remove(i);
+					blue--;
+					count++;
+					break;
+				case 3:
+					System.out.println("white");
+					elements.remove(i);
+					white--;
+					count++;
+					break;
+				case 4:
+					System.out.println("green");
+					elements.remove(i);
+					green--;
+					count++;
+					break;
+				case 5:
+					System.out.println("black");
+					elements.remove(i);
+					black--;
+					count++;
+					break;
+				case 6:
+					System.out.println("purple");
+					elements.remove(i);
+					purple--;
+					count++;
+					break;
+				case 7:
+					System.out.println("silver");
+					elements.remove(i);
+					silver--;
+					count++;
+					break;
+				case 8:
+					System.out.println("cyan");
+					elements.remove(i);
+					cyan--;
+					count++;
+					break;
+				case 9:
+					System.out.println("magenta");
+					elements.remove(i);
+					magenta--;
+					count++;
+					break;
+				case 10:
+					System.out.println("red");
+					elements.remove(i);
+					red--;
+					count++;
+					break;
+				default:
+					System.out.println("Element: " + value);
+				}
+
+			}
+			
+
+		}
+	
+		System.out.printf("You purchased %d gumballs for a total of $%.2f", count, count * 0.25);
+	
+	}
+	
+	// Adds the corresponding amount of gum balls to the arraylist
+	// color is the color, colorValue the value of the color,
+	// and machine is the arrayList used to store all of the 
+	// gum balls
+	public static void Loopy(int color, int colorValue, ArrayList<Integer> machine) {
+		for (int j = 0; j < color; j++) {
+			machine.add(colorValue);
+		}
+	}
+
+}
+
+</TEXTAREA>
+</FORM>
+	<FORM METHOD="get">
+<TEXTAREA NAME="ScriptArea" COLS="90" ROWS="20" WRAP="off">
+
+html>
+ASSIGNMENT 2
+<head>
+	<title>Layout</title>
+	<link rel="stylesheet" type="text/css" href="../css/layout.css">
+</head>
+<header>
+	<nav>
+		<ul>
+			<li class="homeButton"><a href="home.html"><img src="../button.png"></a></li>
+			<li class="homeButton"><a href="assignments.html"><img src="../button1.png"></a></li>
+			<li class="homeButton"><a href="http://cs.nyu.edu/courses/spring16/CSCI-UA.0061-001/"><img src="../button2.png"></a></li>
+			<li class="homeButton"><a href="www.github.com/charleswdickstein"><img src="../button4.png"></a></li>
+			<li class="homeButton"><a href="home.html"><img src="../button5.png"></a></li>
+			
+		</ul>
+	</nav>
+</header>
+<body>
+<div class="splashImage">
+<div class="sidebar">
+	<ul>
+		<li>Github</li>
+		<li>LinkedIn</li>
+	</ul>
+</div>
+<div class="main_content">
+	<img src="../propic.png"/>
+</div>
+</div>
+<footer>
+	<h3>Charles Dickstein</h3>
+	<h3>Web Programming: Assignment 2</h3>
+</footer>
+</body>
+END OF HTML FILE.
+
+CSS FILE:
+
+body{
+	background-color:#1E7FD9;
+}
+header{
+	overflow: auto;
+	
+}
+
+header nav ul li{
+	list-style-type: none;
+	float: left;
+	margin-left: 1em;
+}
+
+.sidebar{
+	float: right;
+	margin-right: 2%;
+
+}
+
+.sidebar ul li{
+	list-style-type: none;
+}
+.main_content{
+	margin-top: 0.5em;
+	padding: 15px 15px 30px 15px;
+	border: 1px solid black;
+	border-radius: 1em;
+}
+
+.main_content img{
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 2em;
+    width: 50%;
+	
+}
+
+.splashImage{
+	z-index: -10;
+
+}
+
+.sidebarImg img{
+	width: 50px;
+	border-radius: 1em;
+}
+
+
+</html>
+</TEXTAREA></P></FORM>
+</div>
+</div>
+<footer>
+	<h3>Charles Dickstein</h3>
+	<h3>Web Programming: Assignment 2</h3>
+</footer>
+</body>
+</html>
